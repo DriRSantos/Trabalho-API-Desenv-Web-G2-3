@@ -35,6 +35,7 @@ public class ProdutoService {
 			novoProdutoDto.setCategoriaProdDto(modelMapper.map(produto.getCategoria(), CategoriaProdDTO.class));
 			novoProdutoDto.setId_imagem(produto.getArquivo().getId_imagem());
 			novoProdutoDto.setNome_imagem(produto.getArquivo().getNome());
+			novoProdutoDto.setUrl_imagem(produto.getArquivo().getUrl_imagem());
 			produtosDTO.add(novoProdutoDto);
 		}
 		return produtosDTO;

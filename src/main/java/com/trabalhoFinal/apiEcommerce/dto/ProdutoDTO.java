@@ -2,6 +2,8 @@ package com.trabalhoFinal.apiEcommerce.dto;
 
 import java.time.LocalDate;
 
+import com.trabalhoFinal.apiEcommerce.entities.UploadArquivo;
+
 public class ProdutoDTO {
 
 	private String nome;
@@ -12,9 +14,19 @@ public class ProdutoDTO {
 	private Integer id_imagem;
 	private String nome_imagem;
 	private CategoriaProdDTO categoriaProdDto;
-
+	private String url_imagem;
 
 	
+	
+
+	public String getUrl_imagem() {
+		return url_imagem;
+	}
+
+	public void setUrl_imagem(String url_imagem) {
+		this.url_imagem = url_imagem;
+	}
+
 	public String getNome_imagem() {
 		return nome_imagem;
 	}
