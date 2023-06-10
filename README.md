@@ -1,6 +1,7 @@
-# Trabalho Final - Grupo 3 - API Restful
+# Projeto aplicado no Trabalho Final Desenvolvimento Web - Grupo 2
 
-📍 Trabalho final para a disciplina de API Restful da Residência em TIC do Serratec, com o objetivo de criar uma API de um e-commerce
+API modificada e aplicada no trabalho final da disciplina Desenvolvimento Web administrada pelo professor , na Residência em TIC do Serratec. A API foi criada pelo grupo 3 na disciplina API Restful.  
+
 
 ## Requisições
 
@@ -10,7 +11,11 @@
   http://localhost:8080/grupo3trabalho/swagger-ui/index.html#/
 ```
 
-## Integrantes
+## Integrantes do Grupo 2 do Desenvolvimento Web
+- [Isabel de Freitas](https://github.com/isabeldefreitas)
+
+
+## Integrantes do Grupo 3 da API
 
 - [Isabel de Freitas](https://github.com/isabeldefreitas)
 - [Juliana Boubée](https://github.com/boubeejul)
