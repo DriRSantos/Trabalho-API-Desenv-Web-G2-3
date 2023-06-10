@@ -1,6 +1,7 @@
 package com.trabalhoFinal.apiEcommerce.security;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -41,9 +42,9 @@ public class WebSecurityConfig {
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/**", "/roles", "/produtos", "/categorias/dto", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
+                    .requestMatchers("/auth/**", "/roles", "/produtos", "/produtos/dto", "/categorias", "/categorias/dto", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
                     .requestMatchers("/pedidos/user/**").hasRole("USER") // autoriza o acesso a rotas por perfil
-                    .requestMatchers("/categorias/**", "/clientes/**", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/produtos/**", "/users/**").hasAnyRole("ADMIN", "MODERATOR") //autoriza o acesso a rotas por perfis
+                    .requestMatchers("/clientes/**", "/users/**").hasAnyRole("ADMIN", "MODERATOR") //autoriza o acesso a rotas por perfis
                     .anyRequest().authenticated()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
 		;		
 		
@@ -56,8 +57,10 @@ public class WebSecurityConfig {
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("*"));
-		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT"));
+		configuration.setAllowedOrigins(List.of("*"));
+		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+		configuration.addAllowedOrigin("*"); // ADICIONANDO O LINK PERMITIDO
+		configuration.setAllowedHeaders(List.of("Authorization", "content-type"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
