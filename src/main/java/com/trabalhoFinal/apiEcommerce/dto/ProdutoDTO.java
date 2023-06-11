@@ -2,10 +2,9 @@ package com.trabalhoFinal.apiEcommerce.dto;
 
 import java.time.LocalDate;
 
-import com.trabalhoFinal.apiEcommerce.entities.UploadArquivo;
-
 public class ProdutoDTO {
 
+	private Integer id_produto;
 	private String nome;
 	private String descricao;
 	private Integer qtd_estoque;
@@ -16,15 +15,12 @@ public class ProdutoDTO {
 	private CategoriaProdDTO categoriaProdDto;
 	private String url_imagem;
 
-	
-	
-
-	public String getUrl_imagem() {
-		return url_imagem;
+	public Integer getId_produto() {
+		return id_produto;
 	}
 
-	public void setUrl_imagem(String url_imagem) {
-		this.url_imagem = url_imagem;
+	public void setId_produto(Integer id_produto) {
+		this.id_produto = id_produto;
 	}
 
 	public String getNome_imagem() {
@@ -89,6 +85,14 @@ public class ProdutoDTO {
 
 	public void setCategoriaProdDto(CategoriaProdDTO categoriaProdDto) {
 		this.categoriaProdDto = categoriaProdDto;
+	}
+	
+	public String getUrl_imagem() {
+		return url_imagem;
+	}
+
+	public void setUrl_imagem(String url_imagem) {
+		this.url_imagem = url_imagem;
 	}
 
 }

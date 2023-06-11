@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -42,7 +43,11 @@ public class WebSecurityConfig {
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/**", "/roles", "/produtos", "/produtos/dto", "/categorias/**", "/categorias/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
+                    .requestMatchers("/auth/**", "/roles", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
+                    .requestMatchers(HttpMethod.GET, "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
+//                    .requestMatchers(HttpMethod.POST, "/produtos/**","/categorias/**").hasRole("ADMIN") se precisar alterar
+//                    .requestMatchers(HttpMethod.PUT,"/produtos/**","/categorias/**").hasRole("ADMIN")
+//                    .requestMatchers(HttpMethod.DELETE,"/produtos/**","/categorias/**").hasRole("ADMIN")
                     .requestMatchers("/pedidos/user/**").hasRole("USER") // autoriza o acesso a rotas por perfil
                     .requestMatchers("/clientes/**", "/users/**").hasAnyRole("ADMIN", "MODERATOR") //autoriza o acesso a rotas por perfis
                     .anyRequest().authenticated()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
