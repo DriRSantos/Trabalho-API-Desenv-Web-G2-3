@@ -33,6 +33,7 @@ public class EnderecoService {
 
 		Endereco enderecoApi = consultaApiEnderecoWs(endereco.getCep());
 		enderecoApi.setNumero(endereco.getNumero());
+		enderecoApi.setComplemento(endereco.getComplemento());
 		enderecoRepository.save(enderecoApi);
 		return enderecoApi;
 

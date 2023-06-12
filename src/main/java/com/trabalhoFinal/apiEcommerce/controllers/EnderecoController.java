@@ -41,8 +41,7 @@ public class EnderecoController {
 	public ResponseEntity<Endereco> getEnderecoById(@PathVariable Integer id) {
 		return new ResponseEntity<>(enderecoService.getEnderecoById(id), HttpStatus.OK);
 	}
-
-	@PreAuthorize("hasAnyRole('ADMIN', 'MODERATOR')")
+	
 	@PostMapping
 	public ResponseEntity<Endereco> saveEndereco(@RequestBody @Valid Endereco endereco) {
 

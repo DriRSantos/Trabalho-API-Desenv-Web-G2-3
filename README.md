@@ -23,9 +23,9 @@ Deploy feito no Railway para consumo da API no ecommerce.
 
 ## Capturas de tela
 
-![](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/deploy-railway-postgres)
-![](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/requisicao-insomnia.png)
-![](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/deploy-railway-postgres)
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Deploy-railway-postgres.png?raw=true" width="450" height="248">
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Requisicao-insomnia.png?raw=true" width="450" height="248">
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Requisicao-insomnia-2.png?raw=true" width="450" height="248">
 
 
 ## Tecnologias utilizadas

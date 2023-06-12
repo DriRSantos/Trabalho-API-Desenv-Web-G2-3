@@ -44,7 +44,6 @@ public class Produto {
 
 	
 	@Min(value = 0, message = "A quantidade no estoque não deve ser negativa!" )
-	@NotNull(message = "A quantidade em estoque não deve ser nulo")
 	@Column(name = "qtd_estoque")
 	private Integer qtd_estoque;
 

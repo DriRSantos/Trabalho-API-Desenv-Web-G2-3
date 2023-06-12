@@ -57,6 +57,15 @@ public class ProdutoService {
 	public Produto updateProduto(Produto produto) {
 		return produtoRepository.save(produto);
 	}
+	
+	public Produto updateProdutoQuantity(Integer id, Integer qtd_estoque) {
+	    Produto produto = produtoRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException("Produto not found"));
+
+	    produto.setQtd_estoque(qtd_estoque);
+
+	    return produtoRepository.save(produto);
+	}
 
 	public MessageDTO delProduto(Integer id) {
 		produtoRepository.findById(id).orElseThrow(() -> new ProdutoNotFoundException(id));

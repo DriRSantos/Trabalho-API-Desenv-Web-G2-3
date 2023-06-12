@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.trabalhoFinal.apiEcommerce.dto.ClienteDTO;
@@ -66,7 +67,13 @@ public class ClienteService {
 	}
 
 	public Cliente saveCliente(Cliente cliente) {
-		return clienteRepository.save(cliente);
+		try {
+			return clienteRepository.save(cliente);
+		}
+		catch (DataAccessException e) {
+			throw new ClienteNotFoundException("");
+		}
+		
 	}
 
 	public Cliente updateCliente(Cliente cliente, Integer id) {

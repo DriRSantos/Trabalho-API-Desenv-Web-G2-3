@@ -60,9 +60,15 @@ public class ProdutoController {
 	}
 
 	@PutMapping
-	public ResponseEntity<Produto> updateProduto(@RequestBody @Valid Produto produto) {
+	public ResponseEntity<Produto> updateProduto(@RequestBody @Valid Produto produto, Integer id) {
 		return new ResponseEntity<>(produtoService.updateProduto(produto), HttpStatus.OK);
 	}
+	
+	@PutMapping("/{id}/quantidade") // SO FUNCIONA SE REMOVER NOTNULL DA qt_estoque
+	public ResponseEntity<Produto> updateProdutoQuantity(@PathVariable Integer id, Integer qtd_estoque) {
+	    Produto updatedProduto = produtoService.updateProdutoQuantity(id, qtd_estoque);
+	    return new ResponseEntity<>(updatedProduto, HttpStatus.OK);
+	}	
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<MessageDTO> delProduto(@PathVariable Integer id) {
