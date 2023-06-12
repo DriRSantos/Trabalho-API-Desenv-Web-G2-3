@@ -1,6 +1,7 @@
 package com.trabalhoFinal.apiEcommerce.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,15 @@ public class ClienteController {
 		return new ResponseEntity<>(clienteService.getAllClientesDTO(), HttpStatus.OK);
 	}
 	
+	@PostMapping("/mensagem")
+	public ResponseEntity<MessageResponseDTO> sentEmail(@RequestBody Map<String, String> request) {
+		System.out.println("teste");   
+		String nome = request.get("nome");
+		String mailFrom = request.get("email");
+		String mensagem = request.get("mensagem");
+		
+		return new ResponseEntity<>(clienteService.sentEmail(nome,  mailFrom, mensagem), HttpStatus.OK);
+	}
 	
 	
 	@PostMapping

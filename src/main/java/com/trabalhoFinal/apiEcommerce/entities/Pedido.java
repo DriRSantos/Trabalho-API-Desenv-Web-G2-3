@@ -72,7 +72,13 @@ public class Pedido {
 	}
 
 	public void setData_pedido(LocalDate data_pedido) {
-		this.data_pedido = data_pedido;
+		 LocalDate currentDate = LocalDate.now(); 
+
+	       if (data_pedido.isAfter(currentDate)) {
+	           this.data_pedido = data_pedido;
+	       } else {
+	           throw new IllegalArgumentException("Data de Pedido inválida: Datas retroativas não são permitidas.");
+	       }
 	}
 
 	public LocalDate getData_entrega() {

@@ -1,19 +1,20 @@
 package com.trabalhoFinal.apiEcommerce.services;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.trabalhoFinal.apiEcommerce.dto.MessageDTO;
 import com.trabalhoFinal.apiEcommerce.dto.PedidoDTO;
-import com.trabalhoFinal.apiEcommerce.dto.RelatorioPedidoDTO;
 import com.trabalhoFinal.apiEcommerce.dto.ProdutoEmailDTO;
 import com.trabalhoFinal.apiEcommerce.dto.ProdutoPedidoDTO;
+import com.trabalhoFinal.apiEcommerce.dto.RelatorioPedidoDTO;
 import com.trabalhoFinal.apiEcommerce.entities.Cliente;
 import com.trabalhoFinal.apiEcommerce.entities.ItemPedido;
 import com.trabalhoFinal.apiEcommerce.entities.Pedido;
@@ -152,7 +153,7 @@ public class PedidoService {
 			pedidoEmail.setProdutos(prodPedDto);
 			pedidoEmail.setNome_cliente(pedidoRepository.findById(id).get().getCliente().getNome_completo());;
 
-			emailService.enviarEmail("romuloandriolo@hotmail.com", "Relatório de Pedido " + pedidoEmail.getId_pedido(), pedidoEmail);
+//			emailService.enviarEmail("teste@hotmail.com", "Relatório de Pedido " + pedidoEmail.getId_pedido(), pedidoEmail);
 			return new MessageDTO("Relatório enviado com sucesso!");
 		} else {
 			return new MessageDTO("Relatório indisponível");
@@ -160,18 +161,13 @@ public class PedidoService {
 
 	}
 
-	public Boolean savePedido(Pedido pedido) {
-
-		LocalDate localDate = LocalDate.now();
-		
-		Boolean data_pedido = pedido.getData_pedido().isEqual(localDate) || pedido.getData_pedido().isAfter(localDate);
-		Boolean data_entrega = pedido.getData_entrega().isEqual(pedido.getData_pedido()) || pedido.getData_entrega().isAfter(pedido.getData_pedido());
-		Boolean data_envio = pedido.getData_envio().isEqual(pedido.getData_entrega()) || pedido.getData_envio().isAfter(pedido.getData_entrega());
-		
-		if(data_pedido && data_entrega && data_envio)
-			return true;
-		else
-			return false;
+	public Pedido savePedido(Pedido pedido) {
+	try {
+		return pedidoRepository.save(pedido);
+	} catch(DataAccessException e) {
+		throw new NoSuchElementException("");
+	}
+	
 	}
 
 	public Pedido updatePedido(Pedido pedido) {

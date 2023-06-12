@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.trabalhoFinal.apiEcommerce.dto.ClienteDTO;
 import com.trabalhoFinal.apiEcommerce.dto.EnderecoClienteDTO;
 import com.trabalhoFinal.apiEcommerce.dto.MessageDTO;
+import com.trabalhoFinal.apiEcommerce.dto.MessageResponseDTO;
 import com.trabalhoFinal.apiEcommerce.dto.PedidoClienteDTO;
 import com.trabalhoFinal.apiEcommerce.entities.Cliente;
 import com.trabalhoFinal.apiEcommerce.entities.Pedido;
@@ -52,6 +53,11 @@ public class ClienteService {
 			clientesDto.add(novoClienteDto);
 		}
 		return clientesDto;
+	}
+	
+	public MessageResponseDTO sentEmail(String nome, String  mailFrom, String mensagem) {
+	    emailService.enviarEmailPawn(nome,  mailFrom, mensagem);
+	    return new MessageResponseDTO("E-mail enviado com sucesso!");
 	}
 
 	public Cliente getClienteById(Integer id) {

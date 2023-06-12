@@ -68,18 +68,12 @@ public class PedidoController {
 	@GetMapping("/dto")
 	public ResponseEntity<List<PedidoDTO>> getAllPedidosDTO() {
 		return new ResponseEntity<>(pedidoService.getAllPedidosDTO(), HttpStatus.OK);
-	}
-	
+	}	
 	
 
 	@PostMapping
-	public ResponseEntity<?> savePedido(@RequestBody @Valid Pedido pedido) {
-		Boolean pedidoResponse = pedidoService.savePedido(pedido);
-
-		if (pedidoResponse)
-			return new ResponseEntity<>(pedido, HttpStatus.CREATED);
-		else
-			return ResponseEntity.badRequest().body(new MessageDTO("Datas não cadastradas corretamente!"));
+	public ResponseEntity<Pedido> savePedido(@RequestBody @Valid Pedido pedido) {
+		return new ResponseEntity<>(pedidoService.savePedido(pedido), HttpStatus.CREATED);			
 	}
 
 	@PutMapping

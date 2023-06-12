@@ -44,8 +44,9 @@ public class WebSecurityConfig {
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/auth/**", "/roles", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
-                    .requestMatchers(HttpMethod.GET, "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
-//                    .requestMatchers(HttpMethod.POST, "/produtos/**","/categorias/**").hasRole("ADMIN") se precisar alterar
+                    .requestMatchers(HttpMethod.GET, "/relatorio/**", "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem").permitAll()
+//                    .requestMatchers(HttpMethod.POST, "/produtos/**","/categorias/**").hmsRole("ADMIN") se precisar alterar
 //                    .requestMatchers(HttpMethod.PUT,"/produtos/**","/categorias/**").hasRole("ADMIN")
 //                    .requestMatchers(HttpMethod.DELETE,"/produtos/**","/categorias/**").hasRole("ADMIN")
                     .requestMatchers("/pedidos/user/**").hasRole("USER") // autoriza o acesso a rotas por perfil
