@@ -1,6 +1,7 @@
 # Projeto aplicado no Trabalho Final Desenvolvimento Web - Grupo 2
 
 API modificada e aplicada no trabalho final da disciplina Desenvolvimento Web [G2PawnShop](https://github.com/Artoda/Projeto-Final-React) administrada pelo professor [@weilemann](https://github.com/weilemann), na Residência em TIC do Serratec. A API foi criada pelo [grupo 3 na disciplina API Restful](https://github.com/Artoda/Trabalho-API) e alterada para utilização com o frontend.
+Deploy feito no Railway para consumo da API no ecommerce.
 
 
 ## Requisições
@@ -8,7 +9,7 @@ API modificada e aplicada no trabalho final da disciplina Desenvolvimento Web [G
 ➡️ Para ter acesso a todas as requisições disponíveis, por meio do Swagger:
 
 ```bash
-  http://localhost:8080/grupo3trabalho/swagger-ui/index.html#/
+  http://localhost:8080/postgres/swagger-ui/index.html#/
 ```
 
 ## Integrantes do Grupo 2 do Desenvolvimento Web
@@ -22,7 +23,9 @@ API modificada e aplicada no trabalho final da disciplina Desenvolvimento Web [G
 
 ## Capturas de tela
 
-![]()
+![](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/deploy-railway-postgres)
+![](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/requisicao-insomnia.png)
+![](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/deploy-railway-postgres)
 
 
 ## Tecnologias utilizadas
@@ -37,4 +40,4 @@ API modificada e aplicada no trabalho final da disciplina Desenvolvimento Web [G
 
 #
 
-![Logo](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/fotos/serratecLogo.png?raw=true)
+![Logo](https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/serratecLogo.png?raw=true)
