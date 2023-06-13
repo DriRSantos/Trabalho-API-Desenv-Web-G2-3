@@ -45,8 +45,8 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/auth/**", "/roles", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
                     .requestMatchers(HttpMethod.GET, "/relatorio/**", "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
-                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem", "/enderecos/**", "/pedidos/**", "/register").permitAll()
-                    .requestMatchers(HttpMethod.PUT, "/produtos/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem", "/enderecos/**", "/pedidos/**", "/register", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
+                    .requestMatchers(HttpMethod.PUT, "/produtos", "/produtos/id/quantidade").permitAll()
                     .requestMatchers(HttpMethod.DELETE, "/produtos/**").permitAll()
 //                    .requestMatchers(HttpMethod.POST, "/produtos/**","/categorias/**").hmsRole("ADMIN") se precisar alterar
                     .requestMatchers("/pedidos/user/**").hasRole("USER") // autoriza o acesso a rotas por perfil
