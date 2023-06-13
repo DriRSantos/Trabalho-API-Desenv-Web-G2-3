@@ -44,8 +44,8 @@ public class WebSecurityConfig {
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/auth/**", "/roles", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
-                    .requestMatchers(HttpMethod.GET, "/relatorio/**", "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
-                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem", "/enderecos/**", "/pedidos/**", "/register", "/enderecos/**", "/itemPedidos/**", "/pedidos/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/relatorio/**", "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/clientes**", "/users**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem", "/enderecos/**", "/pedidos/**", "/register", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/clientes**").permitAll()
                     .requestMatchers(HttpMethod.PUT, "/produtos", "/produtos/id/quantidade").permitAll()
                     .requestMatchers(HttpMethod.DELETE, "/produtos/**").permitAll()
 //                    .requestMatchers(HttpMethod.POST, "/produtos/**","/categorias/**").hmsRole("ADMIN") se precisar alterar
