@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -19,6 +20,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id_cliente", scope = Cliente.class)
 @Entity
@@ -36,6 +38,7 @@ public class Cliente {
 
 	@NotBlank(message = "O nome deve ser preenchido!" )
 	@Column(name = "nome_completo")
+	@Size(min = 3, max = 14)
 	private String nome_completo;
 
 	@NotBlank(message = "O CPF deve ser preenchido!" )
@@ -49,6 +52,7 @@ public class Cliente {
 
 	@NotNull(message = "A data de nascimento deve ser preenchida!" )
 	@Column(name = "data_nascimento")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private LocalDate data_nascimento;
 
 	@OneToMany(mappedBy = "cliente")

@@ -45,9 +45,9 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/auth/**", "/roles", "/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
                     .requestMatchers(HttpMethod.GET, "/relatorio/**", "/produtos/**","/categorias/**", "/produtos/dto", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/clientes**", "/users**").permitAll()
-                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem", "/enderecos/**", "/pedidos/**", "/register", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/clientes**").permitAll()
-                    .requestMatchers(HttpMethod.PUT, "/produtos", "/produtos/id/quantidade").permitAll()
-                    .requestMatchers(HttpMethod.DELETE, "/produtos/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/clientes/mensagem", "/enderecos/**", "/pedidos/**", "/register", "/enderecos/**", "/itemPedidos/**", "/pedidos/**", "/clientes**").hasAnyRole("ADMIN", "USER")
+                    .requestMatchers(HttpMethod.PUT, "/produtos", "/produtos/id/quantidade").hasAnyRole("ADMIN", "USER")
+                    .requestMatchers(HttpMethod.DELETE, "/produtos/**").hasAnyRole("ADMIN")
 //                    .requestMatchers(HttpMethod.POST, "/produtos/**","/categorias/**").hmsRole("ADMIN") se precisar alterar
                     .requestMatchers("/pedidos/user/**").hasRole("USER") // autoriza o acesso a rotas por perfil
                     .requestMatchers("/clientes/**", "/users/**").hasAnyRole("ADMIN", "MODERATOR") //autoriza o acesso a rotas por perfis

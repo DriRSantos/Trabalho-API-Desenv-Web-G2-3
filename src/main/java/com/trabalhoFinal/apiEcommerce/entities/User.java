@@ -26,7 +26,7 @@ public class User {
 	private Integer id;
 
 	@NotBlank
-	@Size(max = 20)
+	@Size(max = 14)
 	private String username;
 
 	@NotBlank
