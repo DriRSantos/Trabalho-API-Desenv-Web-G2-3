@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,8 @@ import com.trabalhoFinal.apiEcommerce.entities.Endereco;
 import com.trabalhoFinal.apiEcommerce.exceptions.EnderecoNotFoundException;
 import com.trabalhoFinal.apiEcommerce.exceptions.HttpClientErrorExceptionhandler;
 import com.trabalhoFinal.apiEcommerce.repositories.EnderecoRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class EnderecoService {
@@ -40,9 +43,33 @@ public class EnderecoService {
 	}
 
 	public Endereco updateEndereco(Endereco endereco, Integer id) {
-
-		return enderecoRepository.save(endereco);
+		
+		try {
+		Endereco updateEndereco = enderecoRepository.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException("Entidade não foi encontrada!"));
+		
+		updateData(updateEndereco, endereco);
+		return enderecoRepository.save(updateEndereco);
 	}
+		catch (DataAccessException e) {
+			throw new EnderecoNotFoundException(id);
+		}
+	}	
+
+	private void updateData(Endereco updateEndereco, Endereco endereco) {
+		
+		Endereco enderecoApi = consultaApiEnderecoWs(endereco.getCep());
+		
+		updateEndereco.setCep(endereco.getCep());
+		updateEndereco.setLogradouro(enderecoApi.getLogradouro());
+		updateEndereco.setBairro(enderecoApi.getBairro());
+		updateEndereco.setLocalidade(enderecoApi.getLocalidade());
+		updateEndereco.setNumero(endereco.getNumero());
+		updateEndereco.setComplemento(endereco.getComplemento());
+		updateEndereco.setUf(enderecoApi.getUf());
+	}
+	
+	
 
 	public MessageDTO delEndereco(Integer id) {
 		enderecoRepository.findById(id).orElseThrow(() -> new EnderecoNotFoundException(id));

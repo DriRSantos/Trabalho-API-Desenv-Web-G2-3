@@ -49,12 +49,12 @@ public class EnderecoController {
 
 	}
 
-	@PutMapping
-	public ResponseEntity<Endereco> updateEndereco(@RequestBody @Valid Endereco endereco, Integer id) {
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Endereco> updateEndereco(@RequestBody @Valid Endereco endereco, @Valid @PathVariable Integer id) {
 
 		return new ResponseEntity<>(enderecoService.updateEndereco(endereco, id), HttpStatus.OK);
 	}
-
+	
 	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<MessageDTO> delEndereco(@PathVariable Integer id) {
