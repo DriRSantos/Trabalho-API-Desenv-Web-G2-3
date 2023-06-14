@@ -49,7 +49,6 @@ public class EnderecoController {
 
 	}
 
-	@PreAuthorize("hasAnyRole('ADMIN', 'MODERATOR')")
 	@PutMapping
 	public ResponseEntity<Endereco> updateEndereco(@RequestBody @Valid Endereco endereco, Integer id) {
 
