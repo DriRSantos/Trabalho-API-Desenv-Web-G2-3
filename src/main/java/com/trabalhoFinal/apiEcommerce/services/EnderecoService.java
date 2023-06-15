@@ -67,8 +67,7 @@ public class EnderecoService {
 		updateEndereco.setNumero(endereco.getNumero());
 		updateEndereco.setComplemento(endereco.getComplemento());
 		updateEndereco.setUf(enderecoApi.getUf());
-	}
-	
+	}	
 	
 
 	public MessageDTO delEndereco(Integer id) {

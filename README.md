@@ -1,6 +1,6 @@
 # Projeto aplicado no Trabalho Final Desenvolvimento Web - Grupo 2
 
-API modificada e aplicada no trabalho final da disciplina Desenvolvimento Web [G2PawnShop](https://github.com/Artoda/Projeto-Final-React) administrada pelo professor [@weilemann](https://github.com/weilemann), na Residência em TIC do Serratec. A API foi criada pelo [grupo 3 na disciplina API Restful](https://github.com/Artoda/Trabalho-API) e alterada para utilização com o frontend.
+API modificada e aplicada no trabalho final [G2PawnShop](https://github.com/Artoda/Projeto-Final-React) da disciplina Desenvolvimento Web, administrada pelo professor [@weilemann](https://github.com/weilemann), na Residência em TIC do Serratec. A API foi criada pelo [grupo 3 na disciplina API Restful](https://github.com/Artoda/Trabalho-API) e alterada para utilização com o frontend.
 Deploy feito no Railway para consumo da API no ecommerce.
 
 
@@ -26,6 +26,9 @@ Deploy feito no Railway para consumo da API no ecommerce.
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Deploy-railway-postgres.png?raw=true" width="450" height="248">
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Requisicao-insomnia.png?raw=true" width="450" height="248">
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Requisicao-insomnia-2.png?raw=true" width="450" height="248">
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Deploy-railway-postgres.png?raw=true" width="450" height="248">
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/salvando-no-banco-por-requisicao-na-api.png?raw=true" width="450" height="248">
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/usuarios-cadastrados-no-banco-post-api-com-token.png.png?raw=true" width="450" height="248">
 
 
 ## Tecnologias utilizadas
