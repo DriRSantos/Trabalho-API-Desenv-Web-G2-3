@@ -26,9 +26,8 @@ Deploy feito no Railway para consumo da API no ecommerce.
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Deploy-railway-postgres.png?raw=true" width="450" height="248">
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Requisicao-insomnia.png?raw=true" width="450" height="248">
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Requisicao-insomnia-2.png?raw=true" width="450" height="248">
-<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/Deploy-railway-postgres.png?raw=true" width="450" height="248">
 <img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/salvando-no-banco-por-requisicao-na-api.png?raw=true" width="450" height="248">
-<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/usuarios-cadastrados-no-banco-post-api-com-token.png.png?raw=true" width="450" height="248">
+<img src="https://github.com/DriRSantos/Trabalho-API-Desenv-Web-G2-3/blob/main/Imagens/usuarios-cadastrados-no-banco-post-api-com-token.png?raw=true" width="450" height="248">
 
 
 ## Tecnologias utilizadas
